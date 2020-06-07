@@ -1,23 +1,23 @@
 package com.javafxMvc.dialog;
 
 import javafx.application.Platform;
+import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public abstract class DialogController{
+public abstract class AbstractDialogView {
+
+    @FXML
+    private VBox rootPane;
 
     private Stage stage;
 
-    public DialogController(Parent dialog){
-        super();
-
-        initializeStage(dialog);
-    }
-
-    private void initializeStage(Parent dialog){
-        Scene scene = new Scene(dialog);
+    @FXML
+    public void initialize() {
+        Scene scene = new Scene(rootPane);
 
         stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -38,4 +38,8 @@ public abstract class DialogController{
     }
 
     public abstract void clear();
+
+    public Parent getRoot(){
+        return rootPane;
+    }
 }

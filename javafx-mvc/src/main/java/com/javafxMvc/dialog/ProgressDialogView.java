@@ -4,14 +4,18 @@ import javafx.concurrent.Task;
 import javafx.stage.StageStyle;
 import org.controlsfx.dialog.ProgressDialog;
 
-public class ProgressDialogUtil {
+public class ProgressDialogView {
 
-    public static void show(final Task task){
+    private String title;
+
+    public ProgressDialogView(final String title){
+        this.title = title;
+    }
+
+    public void show(final Task task) {
         ProgressDialog dialog = new ProgressDialog(task);
 
-        dialog.setContentText("Files are Uploading");
-        dialog.setTitle("Files Uploading");
-        dialog.setHeaderText("This is demo");
+        dialog.setTitle(title);
         dialog.initStyle(StageStyle.UTILITY);
 
         new Thread(task).start();

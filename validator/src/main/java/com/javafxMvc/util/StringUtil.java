@@ -1,7 +1,8 @@
 package com.javafxMvc.util;
 
 public class StringUtil {
-    public static boolean isEmpty(final String input){
+
+    public static boolean isNullOrEmpty(final String input){
         return input == null || input.isEmpty();
     }
 }

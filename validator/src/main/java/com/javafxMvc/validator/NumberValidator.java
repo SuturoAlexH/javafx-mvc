@@ -2,6 +2,7 @@ package com.javafxMvc.validator;
 
 import com.javafxMvc.model.ValidatableProperty;
 import com.javafxMvc.util.NumberUtil;
+import com.javafxMvc.util.StringUtil;
 
 public class NumberValidator extends AbstractValidator<String> {
 
@@ -11,6 +12,6 @@ public class NumberValidator extends AbstractValidator<String> {
 
     @Override
     public boolean evaluate() {
-        return NumberUtil.isInteger(property.getValue());
+        return StringUtil.isNullOrEmpty(property.getValue()) || NumberUtil.isInteger(property.getValue());
     }
 }

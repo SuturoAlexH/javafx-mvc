@@ -1,4 +1,4 @@
-package com.javafxMvc.reflection;
+package com.javafxMvc.reflection.mvc;
 
 import com.javafxMvc.annotations.MVCController;
 import com.javafxMvc.model.MvcMap;

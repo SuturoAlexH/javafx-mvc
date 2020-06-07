@@ -1,4 +1,4 @@
-package com.javafxMvc.reflection;
+package com.javafxMvc.reflection.mvc;
 
 import com.javafxMvc.annotations.MVCModel;
 import com.javafxMvc.model.MvcMap;
@@ -15,7 +15,7 @@ public class ModelReflectionLoader {
 
         modelClasses.forEach(modelClass -> {
             try {
-                Constructor<?> modelConstructor = modelClass.getConstructor();
+                Constructor modelConstructor = modelClass.getConstructor();
                 Object model = modelConstructor.newInstance();
 
                 mvcMap.putModel(modelClass, model);

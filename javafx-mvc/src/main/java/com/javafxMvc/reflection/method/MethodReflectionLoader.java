@@ -1,7 +1,7 @@
-package com.javafxMvc.reflection;
+package com.javafxMvc.reflection.method;
 
 import com.javafxMvc.model.MvcMap;
-import com.javafxMvc.reflection.util.ReflectionUtil;
+import com.util.reflection.ReflectionIterator;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 public class MethodReflectionLoader {
 
     public static void load(final MvcMap mvcMap, final Class<? extends Annotation> annotation){
-        ReflectionUtil.iterateMethods(mvcMap.getControllerClasses(), annotation, (clazz, method) -> {
+        ReflectionIterator.methods(mvcMap.getControllerClasses(), annotation, (clazz, method) -> {
             try {
                 method.setAccessible(true);
                 method.invoke(mvcMap.getMvcObjectByClass(clazz));

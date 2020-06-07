@@ -1,13 +1,14 @@
-package com.javafxMvc.reflection;
+package com.javafxMvc.reflection.mvc;
 
 import com.javafxMvc.annotations.Inject;
 import com.javafxMvc.model.MvcMap;
-import com.javafxMvc.reflection.util.ReflectionUtil;
+import com.util.reflection.ReflectionIterator;
+
 
 public class InjectReflectionLoader {
 
     public static void load(final MvcMap mvcMap){
-        ReflectionUtil.iterateFields(mvcMap.getMvcClasses(), Inject.class, (clazz, field) -> {
+        ReflectionIterator.fields(mvcMap.getMvcMap().keySet(), Inject.class, (clazz, field) -> {
             try {
                 field.setAccessible(true);
                 field.set(mvcMap.getMvcObjectByClass(clazz),mvcMap.getMvcObjectByClass(field.getType()));

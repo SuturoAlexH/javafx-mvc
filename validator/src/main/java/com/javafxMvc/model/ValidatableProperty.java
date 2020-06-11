@@ -34,4 +34,10 @@ public class ValidatableProperty<T> {
     public SimpleStringProperty errorProperty() {
         return error;
     }
+
+    public void reset(){
+        value.set(null);
+        isVisible.set(false);
+        error.set("");
+    }
 }

@@ -7,6 +7,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 public abstract class AbstractDialogView {
 
@@ -22,22 +26,19 @@ public abstract class AbstractDialogView {
         stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
-
-        stage.setOnCloseRequest(e -> clear());
     }
 
     public void show(){
-        Platform.runLater(() -> {
-            stage.showAndWait();
-        });
+        Platform.runLater(() -> stage.showAndWait());
     }
 
     public void hide(){
        stage.hide();
-       clear();
     }
 
-    public abstract void clear();
+    public void addCloseListener(Consumer<WindowEvent> onClose){
+        stage.setOnCloseRequest(onClose::accept);
+    }
 
     public Parent getRoot(){
         return rootPane;

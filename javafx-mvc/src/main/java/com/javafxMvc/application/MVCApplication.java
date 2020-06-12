@@ -32,7 +32,7 @@ public abstract class MVCApplication extends Application {
     public abstract void onClose(WindowEvent e);
 
     private void initializeMvc(){
-        Reflections reflections = new Reflections("org.openjfx");
+        Reflections reflections = new Reflections(this.getClass().getPackage().getName());
 
         ModelReflectionLoader.load(reflections, mvcMap);
         ViewReflectionLoader.load(reflections, mvcMap);

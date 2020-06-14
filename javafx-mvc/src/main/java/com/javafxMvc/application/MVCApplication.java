@@ -7,12 +7,15 @@ import com.javafxMvc.reflection.mvc.InjectReflectionLoader;
 import com.javafxMvc.reflection.mvc.ModelReflectionLoader;
 import com.javafxMvc.reflection.mvc.ViewReflectionLoader;
 import com.javafxMvc.reflection.ValidatorReflectionLoader;
+import com.javafxMvc.reflection.L10nReflectionLoader;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 import com.javafxMvc.annotations.*;
 import javafx.stage.WindowEvent;
 import org.reflections.Reflections;
+
+import java.util.ResourceBundle;
 
 public abstract class MVCApplication extends Application {
 
@@ -24,22 +27,26 @@ public abstract class MVCApplication extends Application {
         initialize(stage);
     }
 
-    public void initialize(Stage stage) {
+    public void initialize(final Stage stage) {
         Platform.setImplicitExit(false);
         setupMainWindowCloseListener(stage);
     }
 
     public abstract void onClose(WindowEvent e);
 
+    public abstract ResourceBundle loadResourceBundle();
+
     private void initializeMvc(){
         Reflections reflections = new Reflections(this.getClass().getPackage().getName());
+        ResourceBundle resourceBundle = loadResourceBundle();
 
         ModelReflectionLoader.load(reflections, mvcMap);
-        ViewReflectionLoader.load(reflections, mvcMap);
+        ViewReflectionLoader.load(reflections, mvcMap, resourceBundle);
         ControllerReflectionLoader.load(reflections, mvcMap);
         ValidatorReflectionLoader.load(mvcMap.getMvcMap());
 
         InjectReflectionLoader.load(mvcMap);
+        L10nReflectionLoader.load(mvcMap.getMvcMap(), resourceBundle);
 
         MethodReflectionLoader.load(mvcMap, Bind.class);
         MethodReflectionLoader.load(mvcMap, PostConstruct.class);

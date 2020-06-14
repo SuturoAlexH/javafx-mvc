@@ -16,7 +16,7 @@ public class NotEmptyValidatorTest {
     @Before
     public void setUp(){
         validatableProperty = new ValidatableProperty<>();
-        classUnderTest = new NotEmptyValidator<>(validatableProperty, ERROR_TEXT);
+        classUnderTest = new NotEmptyValidator<>(validatableProperty);
     }
 
     @Test
@@ -103,15 +103,15 @@ public class NotEmptyValidatorTest {
         assertTrue(validatableProperty.isIsVisible());
     }
 
-    @Test
-    public void validate_invalid_errorTextIsSet(){
-        //arrange
-        validatableProperty.valueProperty().set("");
-
-        //act
-        classUnderTest.validate();
-
-        //assert
-        assertEquals(ERROR_TEXT, validatableProperty.getError());
-    }
+//    @Test
+//    public void validate_invalid_errorTextIsSet(){
+//        //arrange
+//        validatableProperty.valueProperty().set("");
+//
+//        //act
+//        classUnderTest.validate();
+//
+//        //assert
+//        assertEquals(ERROR_TEXT, validatableProperty.getError());
+//    }
 }

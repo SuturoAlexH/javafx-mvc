@@ -16,7 +16,7 @@ public class NumberValidatorTest {
     @Before
     public void setUp(){
         validatableProperty = new ValidatableProperty<>();
-        classUnderTest = new NumberValidator(validatableProperty, ERROR_TEXT);
+        classUnderTest = new NumberValidator(validatableProperty);
     }
 
     @Test
@@ -127,15 +127,15 @@ public class NumberValidatorTest {
         assertTrue(validatableProperty.isIsVisible());
     }
 
-    @Test
-    public void validate_invalid_errorTextIsSet(){
-        //arrange
-        validatableProperty.valueProperty().set("a");
-
-        //act
-        classUnderTest.validate();
-
-        //assert
-        assertEquals(ERROR_TEXT, validatableProperty.getError());
-    }
+//    @Test
+//    public void validate_invalid_errorTextIsSet(){
+//        //arrange
+//        validatableProperty.valueProperty().set("a");
+//
+//        //act
+//        classUnderTest.validate();
+//
+//        //assert
+//        assertEquals(ERROR_TEXT, validatableProperty.getError());
+//    }
 }

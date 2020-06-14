@@ -6,8 +6,8 @@ import com.javafxMvc.util.StringUtil;
 
 public class NumberValidator extends AbstractValidator<String> {
 
-    public NumberValidator(final ValidatableProperty<String> property, final String errorText) {
-        super(property, errorText);
+    public NumberValidator(final ValidatableProperty<String> property) {
+        super(property);
     }
 
     @Override

@@ -9,8 +9,6 @@ public class ValidatableProperty<T> {
 
     SimpleBooleanProperty isVisible = new SimpleBooleanProperty();
 
-    SimpleStringProperty error = new SimpleStringProperty();
-
     public T getValue() {
         return value.get();
     }
@@ -27,17 +25,8 @@ public class ValidatableProperty<T> {
         return isVisible;
     }
 
-    public String getError() {
-        return error.get();
-    }
-
-    public SimpleStringProperty errorProperty() {
-        return error;
-    }
-
     public void reset(){
         value.set(null);
         isVisible.set(false);
-        error.set("");
     }
 }

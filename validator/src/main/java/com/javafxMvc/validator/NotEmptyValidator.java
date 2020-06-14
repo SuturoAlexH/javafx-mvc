@@ -3,8 +3,9 @@ package com.javafxMvc.validator;
 import com.javafxMvc.model.ValidatableProperty;
 
 public class NotEmptyValidator<T> extends AbstractValidator<T> {
-    public NotEmptyValidator(final ValidatableProperty<T> property, final String errorText) {
-        super(property, errorText);
+
+    public NotEmptyValidator(final ValidatableProperty<T> property) {
+        super(property);
     }
 
     @Override

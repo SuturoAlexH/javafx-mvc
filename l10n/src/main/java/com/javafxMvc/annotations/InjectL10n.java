@@ -5,8 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface MVCView {
-    String value();
+@Target(ElementType.FIELD)
+@Retention( RetentionPolicy.RUNTIME)
+public @interface InjectL10n {
 }

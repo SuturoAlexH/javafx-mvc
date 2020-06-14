@@ -11,26 +11,26 @@ import org.reflections.Reflections;
 import static org.junit.Assert.assertNotNull;
 
 public class InjectReflectionLoaderTest {
-    private MvcMap mvcMap;
-
-    @Before
-    public void setUp(){
-        mvcMap = new MvcMap();
-    }
-
-    @Test
-    public void load_normal_fieldIsNotNull(){
-        //arrange
-        Reflections reflections = new Reflections("com.javafxMvc.test");
-
-        //act
-        ModelReflectionLoader.load(reflections, mvcMap);
-        ControllerReflectionLoader.load(reflections, mvcMap);
-        ViewReflectionLoader.load(reflections, mvcMap);
-        InjectReflectionLoader.load(mvcMap);
-
-        //assert
-        TestController controller = (TestController) mvcMap.getMvcObjectByClass(TestController.class);
-        assertNotNull(controller.getModel());
-    }
+//    private MvcMap mvcMap;
+//
+//    @Before
+//    public void setUp(){
+//        mvcMap = new MvcMap();
+//    }
+//
+//    @Test
+//    public void load_normal_fieldIsNotNull(){
+//        //arrange
+//        Reflections reflections = new Reflections("com.javafxMvc.test");
+//
+//        //act
+//        ModelReflectionLoader.load(reflections, mvcMap);
+//        ControllerReflectionLoader.load(reflections, mvcMap);
+//        ViewReflectionLoader.load(reflections, mvcMap);
+//        InjectReflectionLoader.load(mvcMap);
+//
+//        //assert
+//        TestController controller = (TestController) mvcMap.getMvcObjectByClass(TestController.class);
+//        assertNotNull(controller.getModel());
+//    }
 }

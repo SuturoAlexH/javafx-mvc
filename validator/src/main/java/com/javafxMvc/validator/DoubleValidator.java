@@ -5,8 +5,8 @@ import com.javafxMvc.util.NumberUtil;
 
 public class DoubleValidator extends AbstractValidator<String> {
 
-    public DoubleValidator(final ValidatableProperty<String> property, final String errorText) {
-        super(property, errorText);
+    public DoubleValidator(ValidatableProperty<String> property) {
+        super(property);
     }
 
     @Override

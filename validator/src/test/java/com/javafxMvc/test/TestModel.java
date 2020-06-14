@@ -6,10 +6,10 @@ import com.javafxMvc.validator.NotEmptyValidator;
 
 public class TestModel {
 
-    @ValidationProperty(validator = NotEmptyValidator.class, errorText="errorText1")
+    @ValidationProperty(NotEmptyValidator.class)
     private ValidatableProperty<String> property1;
 
-    @ValidationProperty(validator = NotEmptyValidator.class, errorText="errorText2")
+    @ValidationProperty(NotEmptyValidator.class)
     private ValidatableProperty<String> property2;
 
     public ValidatableProperty<String> getProperty1() {

@@ -19,16 +19,14 @@ public class CombinedValidatorTest {
 
     private ValidatableProperty<String> validatableProperty2;
 
-    private static final String ERROR_TEXT ="errorText";
-
 
     @Before
     public void setUp(){
         validatableProperty1 = new ValidatableProperty<>();
-        validator1 = new NotEmptyValidator<>(validatableProperty1, ERROR_TEXT);
+        validator1 = new NotEmptyValidator<>(validatableProperty1);
 
         validatableProperty2 = new ValidatableProperty<>();
-        validator2 = new NotEmptyValidator<>(validatableProperty2, ERROR_TEXT);
+        validator2 = new NotEmptyValidator<>(validatableProperty2);
 
         classUnderTest = new CombinedValidator();
         classUnderTest.addValidator(validator1);

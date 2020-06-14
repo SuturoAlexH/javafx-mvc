@@ -16,7 +16,7 @@ public class DoubleValidatorTest {
     @Before
     public void setUp(){
         validatableProperty = new ValidatableProperty<>();
-        classUnderTest = new DoubleValidator(validatableProperty, ERROR_TEXT);
+        classUnderTest = new DoubleValidator(validatableProperty);
     }
 
     @Test
@@ -139,15 +139,15 @@ public class DoubleValidatorTest {
         assertTrue(validatableProperty.isIsVisible());
     }
 
-    @Test
-    public void validate_invalid_errorTextIsSet(){
-        //arrange
-        validatableProperty.valueProperty().set("a");
-
-        //act
-        classUnderTest.validate();
-
-        //assert
-        assertEquals(ERROR_TEXT, validatableProperty.getError());
-    }
+//    @Test
+//    public void validate_invalid_errorTextIsSet(){
+//        //arrange
+//        validatableProperty.valueProperty().set("a");
+//
+//        //act
+//        classUnderTest.validate();
+//
+//        //assert
+//        assertEquals(ERROR_TEXT, validatableProperty.getError());
+//    }
 }

@@ -6,21 +6,13 @@ public abstract class AbstractValidator<T>  {
 
     ValidatableProperty<T> property;
 
-    private String errorText;
-
-    public AbstractValidator(final ValidatableProperty<T> property, final String errorText){
+    public AbstractValidator(final ValidatableProperty<T> property){
         this.property = property;
-        this.errorText = errorText;
     }
 
     public boolean validate(){
         boolean isValid = evaluate();
-        if(isValid){
-            property.isVisibleProperty().set(false);
-        }else {
-            property.isVisibleProperty().set(true);
-            property.errorProperty().set(errorText);
-        }
+        property.isVisibleProperty().set(!isValid);
 
         return isValid;
     }

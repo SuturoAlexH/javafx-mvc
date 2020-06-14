@@ -22,10 +22,9 @@ class ValidatorPropertyReflectionLoader {
                 field.set(mvcObjectsMap.get(clazz), validationProperty);
 
                 //create validator
-                Class<? extends AbstractValidator> validatorClass = field.getAnnotation(ValidationProperty.class).validator();
-                Constructor<? extends AbstractValidator> validatorConstructor = validatorClass.getConstructor(ValidatableProperty.class, String.class);
-                String errorText = field.getAnnotation(ValidationProperty.class).errorText();
-                AbstractValidator validator = validatorConstructor.newInstance(validationProperty, errorText);
+                Class<? extends AbstractValidator> validatorClass = field.getAnnotation(ValidationProperty.class).value();
+                Constructor<? extends AbstractValidator> validatorConstructor = validatorClass.getConstructor(ValidatableProperty.class);
+                AbstractValidator validator = validatorConstructor.newInstance(validationProperty);
 
                 combinedValidator.addValidator(validator);
             } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException | InstantiationException e) {

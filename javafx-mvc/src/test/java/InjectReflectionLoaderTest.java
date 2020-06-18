@@ -8,29 +8,39 @@ import org.junit.Before;
 import org.junit.Test;
 import org.reflections.Reflections;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 import static org.junit.Assert.assertNotNull;
 
 public class InjectReflectionLoaderTest {
-//    private MvcMap mvcMap;
-//
-//    @Before
-//    public void setUp(){
-//        mvcMap = new MvcMap();
-//    }
-//
-//    @Test
-//    public void load_normal_fieldIsNotNull(){
-//        //arrange
-//        Reflections reflections = new Reflections("com.javafxMvc.test");
-//
-//        //act
-//        ModelReflectionLoader.load(reflections, mvcMap);
-//        ControllerReflectionLoader.load(reflections, mvcMap);
-//        ViewReflectionLoader.load(reflections, mvcMap);
-//        InjectReflectionLoader.load(mvcMap);
-//
-//        //assert
-//        TestController controller = (TestController) mvcMap.getMvcObjectByClass(TestController.class);
-//        assertNotNull(controller.getModel());
-//    }
+
+    private static final String TEST_PACKAGE = "com.javafxMvc.test";
+
+    private MvcMap mvcMap;
+
+    private ResourceBundle resourceBundle;
+
+    @Before
+    public void setUp(){
+        mvcMap = new MvcMap();
+
+        resourceBundle = ResourceBundle.getBundle("language", Locale.GERMANY);
+    }
+
+    @Test
+    public void load_normal_fieldIsNotNull(){
+        //arrange
+        Reflections reflections = new Reflections(TEST_PACKAGE);
+
+        //act
+        ModelReflectionLoader.load(reflections, mvcMap);
+        ControllerReflectionLoader.load(reflections, mvcMap);
+        ViewReflectionLoader.load(reflections, mvcMap, resourceBundle);
+        InjectReflectionLoader.load(mvcMap);
+
+        //assert
+        TestController controller = (TestController) mvcMap.getMvcObjectByClass(TestController.class);
+        assertNotNull(controller.getModel());
+    }
 }

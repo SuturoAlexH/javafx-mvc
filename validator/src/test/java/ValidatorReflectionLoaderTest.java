@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
+import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 
 public class ValidatorReflectionLoaderTest {
@@ -53,6 +54,7 @@ public class ValidatorReflectionLoaderTest {
         ValidatorReflectionLoader.load(mvcMap);
 
         //assert
-       //TODO: check if combinedValidator has validators
+       TestController testController = (TestController) mvcMap.get(TestController.class);
+       assertEquals(2, testController.getCombinedValidator().getValidators().size());
     }
 }

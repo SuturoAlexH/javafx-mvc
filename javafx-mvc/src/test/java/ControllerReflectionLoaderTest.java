@@ -10,6 +10,8 @@ import static org.junit.Assert.assertTrue;
 
 public class ControllerReflectionLoaderTest {
 
+    private static final String TEST_PACKAGE = "com.javafxMvc.test";
+
     private MvcMap mvcMap;
 
     @Before
@@ -20,7 +22,7 @@ public class ControllerReflectionLoaderTest {
     @Test
     public void load_normal_controllerIsAddedToMvcMap(){
         //arrange
-        Reflections reflections = new Reflections("com.javafxMvc.test");
+        Reflections reflections = new Reflections(TEST_PACKAGE);
 
         //act
         ControllerReflectionLoader.load(reflections, mvcMap);
@@ -32,7 +34,7 @@ public class ControllerReflectionLoaderTest {
     @Test
     public void load_normal_mvcMapContainsClass(){
         //arrange
-        Reflections reflections = new Reflections("com.javafxMvc.test");
+        Reflections reflections = new Reflections(TEST_PACKAGE);
 
         //act
         ControllerReflectionLoader.load(reflections, mvcMap);
@@ -44,7 +46,7 @@ public class ControllerReflectionLoaderTest {
     @Test
     public void load_normal_instanceIsOfCorrectClass(){
         //arrange
-        Reflections reflections = new Reflections("com.javafxMvc.test");
+        Reflections reflections = new Reflections(TEST_PACKAGE);
 
         //act
         ControllerReflectionLoader.load(reflections, mvcMap);

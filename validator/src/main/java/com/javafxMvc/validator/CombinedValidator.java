@@ -17,4 +17,8 @@ public class CombinedValidator {
     public void addValidator(final AbstractValidator validator){
         validatorList.add(validator);
     }
+
+    public List<AbstractValidator> getValidators(){
+        return validatorList;
+    }
 }

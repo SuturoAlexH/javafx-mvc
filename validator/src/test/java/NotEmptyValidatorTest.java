@@ -11,8 +11,6 @@ public class NotEmptyValidatorTest {
 
     private ValidatableProperty<String> validatableProperty;
 
-    private static final String ERROR_TEXT ="errorText";
-
     @Before
     public void setUp(){
         validatableProperty = new ValidatableProperty<>();
@@ -102,16 +100,4 @@ public class NotEmptyValidatorTest {
         //assert
         assertTrue(validatableProperty.isIsVisible());
     }
-
-//    @Test
-//    public void validate_invalid_errorTextIsSet(){
-//        //arrange
-//        validatableProperty.valueProperty().set("");
-//
-//        //act
-//        classUnderTest.validate();
-//
-//        //assert
-//        assertEquals(ERROR_TEXT, validatableProperty.getError());
-//    }
 }

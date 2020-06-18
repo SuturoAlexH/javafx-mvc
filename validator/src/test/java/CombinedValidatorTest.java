@@ -11,22 +11,17 @@ public class CombinedValidatorTest {
 
     private CombinedValidator classUnderTest;
 
-    private NotEmptyValidator validator1;
-
     private ValidatableProperty<String> validatableProperty1;
 
-    private NotEmptyValidator validator2;
-
     private ValidatableProperty<String> validatableProperty2;
-
 
     @Before
     public void setUp(){
         validatableProperty1 = new ValidatableProperty<>();
-        validator1 = new NotEmptyValidator<>(validatableProperty1);
+        NotEmptyValidator validator1 = new NotEmptyValidator<>(validatableProperty1);
 
         validatableProperty2 = new ValidatableProperty<>();
-        validator2 = new NotEmptyValidator<>(validatableProperty2);
+        NotEmptyValidator validator2 = new NotEmptyValidator<>(validatableProperty2);
 
         classUnderTest = new CombinedValidator();
         classUnderTest.addValidator(validator1);

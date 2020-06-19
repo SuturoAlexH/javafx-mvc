@@ -21,7 +21,7 @@
         <!-- javafx-->
         <dependency>
             <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
+            <artifactId>javafx-base</artifactId>
             <version>${javafx.version}</version>
         </dependency>
 

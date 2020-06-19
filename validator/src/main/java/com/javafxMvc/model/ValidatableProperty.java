@@ -2,8 +2,11 @@ package com.javafxMvc.model;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
 
+/**
+ *
+ * @param <T>
+ */
 public class ValidatableProperty<T> {
     SimpleObjectProperty<T> value = new SimpleObjectProperty<>();
 
@@ -25,6 +28,9 @@ public class ValidatableProperty<T> {
         return isVisible;
     }
 
+    /**
+     *
+     */
     public void reset(){
         value.set(null);
         isVisible.set(false);

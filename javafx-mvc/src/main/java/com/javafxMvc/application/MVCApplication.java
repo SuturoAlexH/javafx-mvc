@@ -17,23 +17,45 @@ import org.reflections.Reflections;
 
 import java.util.ResourceBundle;
 
+/**
+ *
+ */
 public abstract class MVCApplication extends Application {
 
-   protected MvcMap mvcMap = new MvcMap();
+    /**
+     *
+     */
+    protected MvcMap mvcMap = new MvcMap();
 
+    /**
+     *
+     * @param stage
+     */
     @Override
     public void start(Stage stage){
         initializeMvc();
         initialize(stage);
     }
 
+    /**
+     *
+     * @param stage
+     */
     public void initialize(final Stage stage) {
         Platform.setImplicitExit(false);
         setupMainWindowCloseListener(stage);
     }
 
+    /**
+     *
+     * @param e
+     */
     public abstract void onClose(WindowEvent e);
 
+    /**
+     *
+     * @return
+     */
     public abstract ResourceBundle loadResourceBundle();
 
     private void initializeMvc(){
@@ -51,14 +73,7 @@ public abstract class MVCApplication extends Application {
         MethodReflectionLoader.load(mvcMap, Bind.class);
         MethodReflectionLoader.load(mvcMap, PostConstruct.class);
     }
-
-    /**
-     * Adds a listener to the cross button in the upper right corner of the main window.
-     * If the listener is triggered a yes or no dialog appear and asks the user if the
-     * application should be terminated.
-     *
-     * @param stage The main stage.
-     */
+    
     private void setupMainWindowCloseListener(final Stage stage){
         stage.setOnCloseRequest(this::onClose);
     }

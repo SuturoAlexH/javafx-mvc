@@ -5,21 +5,23 @@ import com.javafxMvc.util.NumberUtil;
 import com.javafxMvc.util.StringUtil;
 
 /**
- * 
+ * A validator class that validates if the input is a number.
  */
 public class NumberValidator extends AbstractValidator<String> {
 
     /**
+     * Constructs a number validator from a validatable property.
      *
-     * @param property
+     * @param property the validatable property
      */
     public NumberValidator(final ValidatableProperty<String> property) {
         super(property);
     }
 
     /**
+     * Return true if the current value is a number.
      *
-     * @return
+     * @return true if the current value is a number and false otherwise
      */
     @Override
     public boolean evaluate() {//TODO: number should not be empty

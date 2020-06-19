@@ -4,8 +4,10 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
 /**
+ * A property that hold a value that is evaluated and a visible property
+ * for the error.
  *
- * @param <T>
+ * @param <T> the type of the value that is evaluated
  */
 public class ValidatableProperty<T> {
     SimpleObjectProperty<T> value = new SimpleObjectProperty<>();
@@ -29,7 +31,8 @@ public class ValidatableProperty<T> {
     }
 
     /**
-     *
+     * Resets the attributes to the initial state. This means the value is
+     * null and visible is false.
      */
     public void reset(){
         value.set(null);

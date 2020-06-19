@@ -11,15 +11,16 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
 /**
- *
+ * This loader class instances the combined validator.
  */
 public class ValidatorReflectionLoader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ValidatorReflectionLoader.class);
 
     /**
+     * Instantiates the combined validator and adds all validators defined by the validatableProperties.
      *
-     * @param mvcObjectsMap
+     * @param mvcObjectsMap a map of classes and instances
      */
     public static void load(final Map<Class, Object> mvcObjectsMap){
         ReflectionIterator.fields(mvcObjectsMap.keySet(), Validator.class, (clazz, field) -> {

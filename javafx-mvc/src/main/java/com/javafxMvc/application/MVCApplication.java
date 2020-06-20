@@ -18,18 +18,19 @@ import org.reflections.Reflections;
 import java.util.ResourceBundle;
 
 /**
- *
+ * The abstract base class for all mvc applications.
  */
 public abstract class MVCApplication extends Application {
 
     /**
-     *
+     * The mvc map
      */
     protected MvcMap mvcMap = new MvcMap();
 
     /**
+     * Start the application
      *
-     * @param stage
+     * @param stage the main stage
      */
     @Override
     public void start(Stage stage){
@@ -38,8 +39,9 @@ public abstract class MVCApplication extends Application {
     }
 
     /**
+     * Initializes the application.
      *
-     * @param stage
+     * @param stage the main stage
      */
     public void initialize(final Stage stage) {
         Platform.setImplicitExit(false);
@@ -47,14 +49,16 @@ public abstract class MVCApplication extends Application {
     }
 
     /**
+     * Is called before the application is closed.
      *
-     * @param e
+     * @param e the close window event
      */
     public abstract void onClose(WindowEvent e);
 
     /**
+     * Loads the resource bundle to specify the current language.
      *
-     * @return
+     * @return the resource bundle
      */
     public abstract ResourceBundle loadResourceBundle();
 

@@ -4,6 +4,9 @@ import javafx.scene.Parent;
 
 import java.util.*;
 
+/**
+ * The mvc map that holds the instances of the nodes, views, controllers and models.
+ */
 public class MvcMap {
 
     private Map<Class, Parent> nodes = new HashMap<>();
@@ -42,26 +45,32 @@ public class MvcMap {
         views.put(clazz, view);
     }
 
+    /**
+     * Returns all classes that are mapped to concrete instances.
+     *
+     * @return the list of classes
+     */
     public List<Class> getMvcClasses(){
-        List<Class> mvcClasses = new ArrayList<>();
-
-        mvcClasses.addAll(models.keySet());
-        mvcClasses.addAll(controllers.keySet());
-        mvcClasses.addAll(views.keySet());
-
-        return mvcClasses;
+        Map<Class, Object> mvcMap = getMvcMap();
+        return new ArrayList<>(mvcMap.keySet());
     }
 
+    /**
+     * Return the instance that belongs to this class.
+     *
+     * @param clazz the class
+     * @return the instance
+     */
     public Object getMvcObjectByClass(final Class<?> clazz){
-        Map<Class, Object> mvcMap = new HashMap<>();
-
-        mvcMap.putAll(models);
-        mvcMap.putAll(controllers);
-        mvcMap.putAll(views);
-
+        Map<Class, Object> mvcMap = getMvcMap();
         return mvcMap.get(clazz);
     }
 
+    /**
+     * The map of classes and instances.
+     *
+     * @return the map of classes that are mapped to instances
+     */
     public Map<Class, Object> getMvcMap(){
         Map<Class, Object> mvcMap = new HashMap<>();
 

@@ -17,7 +17,7 @@ class ValidatorPropertyReflectionLoader {
     private static final Logger LOGGER = LoggerFactory.getLogger(ValidatorPropertyReflectionLoader.class);
 
      static void load(final CombinedValidator combinedValidator, final Class validatableClass, final Map<Class, Object> mvcObjectsMap){
-        ReflectionIterator.fields(validatableClass, ValidationProperty.class, (clazz, field) -> {
+        ReflectionIterator.field(validatableClass, ValidationProperty.class, (clazz, field) -> {
             try {
                 //create validationProperty
                 field.setAccessible(true);

@@ -1,6 +1,7 @@
 package com.javafxMvc.validator;
 
 import com.javafxMvc.model.ValidatableProperty;
+import com.javafxMvc.util.StringUtil;
 
 /**
  * A validator class that validates if the input is a empty or null.
@@ -27,7 +28,7 @@ public class NotEmptyValidator<T> extends AbstractValidator<T> {
     public boolean evaluate() {
         if (property.getValue() instanceof String){
             String value = (String) property.getValue();
-            return !value.isEmpty();
+            return !StringUtil.isNullOrEmpty(value);
         }
 
         return property.getValue() != null;

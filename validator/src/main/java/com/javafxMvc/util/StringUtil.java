@@ -14,6 +14,6 @@ public class StringUtil {
      * @return true if the given input is null or empty and false otherwise
      */
     public static boolean isNullOrEmpty(final String input){
-        return input == null || input.isEmpty();
+        return input == null || input.trim().isEmpty();
     }
 }

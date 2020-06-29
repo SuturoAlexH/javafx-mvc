@@ -40,6 +40,17 @@ public class NotEmptyValidatorTest {
         //assert
         assertFalse(valid);
     }
+    @Test
+    public void evaluate_invalidEmpty2_false(){
+        //arrange
+        validatableProperty.valueProperty().set(" ");
+
+        //act
+        boolean valid = classUnderTest.evaluate();
+
+        //assert
+        assertFalse(valid);
+    }
 
     @Test
     public void evaluate_invalidNull_false(){

@@ -44,7 +44,6 @@ public abstract class MVCApplication extends Application {
      * @param stage the main stage
      */
     public void initialize(final Stage stage) {
-        Platform.setImplicitExit(false);
         setupMainWindowCloseListener(stage);
     }
 

@@ -1,5 +1,6 @@
 package com.javafxMvc.application;
 
+import com.javafxMvc.l10n.L10n;
 import com.javafxMvc.model.MvcMap;
 import com.javafxMvc.reflection.method.MethodReflectionLoader;
 import com.javafxMvc.reflection.mvc.ControllerReflectionLoader;
@@ -7,9 +8,7 @@ import com.javafxMvc.reflection.mvc.InjectReflectionLoader;
 import com.javafxMvc.reflection.mvc.ModelReflectionLoader;
 import com.javafxMvc.reflection.mvc.ViewReflectionLoader;
 import com.javafxMvc.reflection.ValidatorReflectionLoader;
-import com.javafxMvc.reflection.L10nReflectionLoader;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.stage.Stage;
 import com.javafxMvc.annotations.*;
 import javafx.stage.WindowEvent;
@@ -65,13 +64,14 @@ public abstract class MVCApplication extends Application {
         Reflections reflections = new Reflections(this.getClass().getPackage().getName());
         ResourceBundle resourceBundle = loadResourceBundle();
 
+        L10n.load(resourceBundle);
+
         ModelReflectionLoader.load(reflections, mvcMap);
         ViewReflectionLoader.load(reflections, mvcMap, resourceBundle);
         ControllerReflectionLoader.load(reflections, mvcMap);
         ValidatorReflectionLoader.load(mvcMap.getMvcMap());
 
         InjectReflectionLoader.load(mvcMap);
-        L10nReflectionLoader.load(mvcMap.getMvcMap(), resourceBundle);
 
         MethodReflectionLoader.load(mvcMap, Bind.class);
         MethodReflectionLoader.load(mvcMap, PostConstruct.class);

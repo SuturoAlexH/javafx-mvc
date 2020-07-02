@@ -9,27 +9,17 @@ import org.controlsfx.dialog.ProgressDialog;
  */
 public class ProgressDialogView {
 
-    private String title;
-
-    /**
-     * Constructs a progress dialog and sets the title.
-     *
-     * @param title the title of the dialogs
-     */
-    public ProgressDialogView(final String title){
-        this.title = title;
-    }
-
     /**
      * Shows the dialog and displays the current state of the task.
      *
      * @param task the task that should be mirrored
      */
-    public void show(final Task task) {
+    public void show(final String header, final Task<?> task) {
         ProgressDialog dialog = new ProgressDialog(task);
-
-        dialog.setTitle(title);
         dialog.initStyle(StageStyle.UTILITY);
+        dialog.setTitle(null);
+
+        dialog.setHeaderText(header);
 
         new Thread(task).start();
         dialog.showAndWait();

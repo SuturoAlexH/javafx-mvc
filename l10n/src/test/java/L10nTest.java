@@ -9,12 +9,10 @@ import static org.junit.Assert.assertEquals;
 
 public class L10nTest {
 
-    private L10n l10n;
-
     @Before
     public void setUp(){
         ResourceBundle resourceBundle = ResourceBundle.getBundle("language", Locale.GERMANY);
-        l10n = new L10n(resourceBundle);
+        L10n.load(resourceBundle);
     }
 
     @Test
@@ -22,7 +20,7 @@ public class L10nTest {
         //arrange
 
         //act
-        String value = l10n.get("test_0");
+        String value = L10n.getInstance().get("test_0");
 
         //assert
         assertEquals("value", value);
@@ -33,7 +31,7 @@ public class L10nTest {
         //arrange
 
         //act
-        String value = l10n.get("test_1", "a");
+        String value = L10n.getInstance().get("test_1", "a");
 
         //assert
         assertEquals("value a", value);
@@ -44,7 +42,7 @@ public class L10nTest {
         //arrange
 
         //act
-        String value = l10n.get("test_2", "a", "b");
+        String value = L10n.getInstance().get("test_2", "a", "b");
 
         //assert
         assertEquals("value a b", value);

@@ -14,8 +14,9 @@ public class ProgressDialogView {
      *
      * @param task the task that should be mirrored
      */
-    public void show(final String header, final Task<?> task) {
+    public void show(final String header, final Task<?> task, final String id) {
         ProgressDialog dialog = new ProgressDialog(task);
+        dialog.getDialogPane().setId(id);
         dialog.initStyle(StageStyle.UTILITY);
         dialog.setTitle(null);
 

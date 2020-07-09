@@ -24,7 +24,7 @@ public class NumberValidator extends AbstractValidator<String> {
      * @return true if the current value is a number and false otherwise
      */
     @Override
-    public boolean evaluate() {//TODO: number should not be empty
+    public boolean evaluate() {
         return StringUtil.isNullOrEmpty(property.getValue()) || NumberUtil.isInteger(property.getValue());
     }
 }

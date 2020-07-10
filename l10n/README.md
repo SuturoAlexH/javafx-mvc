@@ -28,15 +28,12 @@ It is necessary put some property files in the resource folder of your app with 
 ##### exmaple:
 
 ```java
-    @MVCController
+    import com.javafxMvc.l10n.L10n;@MVCController
     public class Controller{
     
-        @InjectL10n
-        private L10n l10n;
-        
         public void doSmth(){
-            String myValue = l10n.get("key");// my value
-            String myValueIs10 = l10n.get("placeholder", 10); //my value is 10
+            String myValue = L10n.getInstance().get("key");// my value
+            String myValueIs10 = L10n.getInstance().get("placeholder", 10); //my value is 10
         }
     }
 ```

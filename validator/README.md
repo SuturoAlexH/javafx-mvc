@@ -5,7 +5,7 @@ Some basic validator are implemented right now. If you want to implement a custo
     2. Integer validator
     3. Double validator
     
-#####exmaple:
+##### exmaple:
 
 ```java
     @MVCController

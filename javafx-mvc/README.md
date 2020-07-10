@@ -1,7 +1,7 @@
 # javafx-mvc
 The core package that provides the mvc pattern framework
 
-#####exmaple:
+##### exmaple:
 
 ```java
     import com.javafxMvc.annotations.Inject;

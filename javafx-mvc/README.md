@@ -39,16 +39,16 @@ The core package that provides the mvc pattern framework
         private View view;
 
         @Inject
-        private Model model;
+        private Model com.schlussdorf.model;
         
         @Bind
         public void bindModelAndView(){
-            view.myLabel.textProperty().bindBidirection(model.value);
+            view.myLabel.textProperty().bindBidirection(com.schlussdorf.model.value);
         }       
         
         public void click(){
-            int currentValue = Integer.parseInt(model.currentValue.get());
-            model.currentValue.set(currentValue+1);
+            int currentValue = Integer.parseInt(com.schlussdorf.model.currentValue.get());
+            com.schlussdorf.model.currentValue.set(currentValue+1);
         } 
 
     }
